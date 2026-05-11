@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Budget — Enable Banking callback</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif;
+         max-width: 480px; margin: 4rem auto; padding: 0 1rem; color: #333; }
+  h1 { font-size: 1.25rem; }
+  code { background: #f4f4f4; padding: 0.1rem 0.3rem; border-radius: 3px;
+         font-size: 0.85rem; word-break: break-all; }
+  .hint { color: #888; font-size: 0.9rem; margin-top: 1.5rem; }
+</style>
+</head>
+<body>
+<h1>Connecting Budget…</h1>
+<p>Handing off to the app. If Budget doesn't open in a few seconds, copy the
+   code below and paste it into the app manually.</p>
+<p><code id="code"></code></p>
+<p class="hint">You can close this tab once Budget opens.</p>
+<script>
+  const params = window.location.search;
+  document.getElementById('code').textContent = params || '(no code received)';
+  window.location.replace('budget://enablebanking/callback' + params);
+</script>
+</body>
+</html>
